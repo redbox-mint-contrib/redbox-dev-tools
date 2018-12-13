@@ -1,0 +1,70 @@
+#!/usr/bin/env node
+
+const commandLineArgs = require('command-line-args')
+const commandLineUsage = require('command-line-usage')
+let readlineSync = require('readline-sync');
+
+/* first - parse the main command */
+const mainDefinitions = [{
+  name: 'command',
+  defaultOption: true
+}]
+const mainOptions = commandLineArgs(mainDefinitions, {
+  stopAtFirstUnknown: true
+})
+const argv = mainOptions._unknown || []
+if (mainOptions.command === 'hook-init') {
+  const mergeDefinitions = [{
+    name: 'packageName',
+    alias: 'p'
+  }]
+
+  const mergeOptions = commandLineArgs(mergeDefinitions, {
+    argv
+  })
+
+  if (!mergeOptions.packageName) {
+    mergeOptions.packageName = readlineSync.question('What package name would you like to use for this hook? \n');
+  }
+  let InitProject = require('./commands/initProject');
+  let initProject = new InitProject();
+  initProject.execute(mergeOptions);
+} else if (mainOptions.command === 'help' || !mainOptions.command) {
+
+  if (mainOptions.command === 'help' && argv[0]) {
+    if(argv[0] == "init") {
+      let InitProject = require('./commands/initProject');
+      let initProject = new InitProject();
+      const sections =  initProject.getHelp();
+      const usage = commandLineUsage(sections)
+      console.log(usage);
+    }
+  } else {
+    const sections = [
+
+      {
+        header: 'ReDBox Dev Tools',
+        content: 'A set of tools aimed at developers working with the ReDBox platform'
+      },
+      {
+        header: 'Usage',
+        content: '$ redbox-dev-tools <command> <options>'
+      },
+      {
+        header: 'Available Commands',
+        content: [{
+            name: 'init',
+            summary: 'Initialises a hook code project ready for development'
+          },
+          {
+            name: 'help',
+            summary: 'Shows this help message or help for a specific command'
+          }
+        ]
+      }
+    ]
+
+    const usage = commandLineUsage(sections)
+    console.log(usage);
+  }
+}

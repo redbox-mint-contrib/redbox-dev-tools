@@ -1,0 +1,22 @@
+{
+  "name": "@redboxresearchdata/redbox-dev-tools",
+  "version": "0.0.1",
+  "description": "CLI Tool to assist with development on the ReDBox platform",
+  "main": "index.js",
+  "repository": "http://github.com/redbox-mint/redbox-hook-cli",
+  "author": "QCIF",
+  "license": "GPL-3.0",
+  "private": false,
+  "bin": "redbox-hook-cli",
+  "dependencies": {
+    "command-line-args": "^5.0.2",
+    "command-line-commands": "^2.0.1",
+    "command-line-usage": "^5.0.5",
+    "download-github-release": "^0.3.2",
+    "fs-extra": "^7.0.1",
+    "inly": "^3.0.3",
+    "mustache": "^3.0.1",
+    "readline-sync": "^1.4.9",
+    "request": "^2.88.0"
+  }
+}
