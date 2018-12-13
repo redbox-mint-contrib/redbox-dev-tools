@@ -8,6 +8,9 @@
   "license": "GPL-3.0",
   "private": false,
   "bin": "redbox-hook-cli",
+  "scripts" : {
+    "test" : "true"
+  },
   "dependencies": {
     "command-line-args": "^5.0.2",
     "command-line-commands": "^2.0.1",
