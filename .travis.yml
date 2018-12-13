@@ -1,0 +1,23 @@
+sudo: required
+services:
+- docker
+language: node_js
+node_js:
+- '8'
+env:
+  global:
+  - COMMIT=${TRAVIS_COMMIT::8}
+  - CXX=g++-4.9
+  - secure: g1WCGWA64MAgXY6X+1/XxKOab3ANBXq9aUJFE7HzIWvZ6xty/mTbHbz8cX16ltfMxHWyy4icFXsKxb4lEFS3Tj50osVFTbBRljG01kyzwT5S+gJPTmqaN0c/lV5pvaUNkg1bE3dHLIuZamunUk7kJIzgByeEVr5Of05H+/QRqycJx88aE91vhxOCODe268OypQZUOQ70BkIalvSIHunCYlrD5MflS+EmMs+eTet9mRNB4Wa2xDoymFQ4VS8QVA2XrSDpdFDKJyRW6AvfmUsJFr1yhZlwMSgZsHqAbyVqU28FbkmRHyFjxarxhGW3WACAPeYjLfzoyGE1DAkmRJFh2DIFa7xOCeI3e2lwN25qObN9ETlLPKTdxiOgQ9M74A7rpdem4wmu8Bws1Std04eAh03BXsFuTLHZ9sXtMHbNbyF+X2eLOBaw6r+OPxhSaxCrQa4ZNQI7HeY7Eb5GiJUje+q56Nsvzeo57qnbyfd6Brt7plNuaDBIFugE4twtjS7idE8asVf8KQBnsjF7Ef9tB+ouACHGo1Ne6ccNQ7KXqC4irpzjraqhRhXwUKcDhC/44hYTdAfboZlnE5QDxMNiDvMDTPGmp16rcx5/5QAgRzkdNQOe+RhY2UN99W7o8UORkuYKoNp5Vp42FT+ff7pXpH895TtkJVYGYj/szDdTe+4=
+jobs:
+  include:
+  - stage: Build the package
+    before_install: npm install
+    install: true
+    deploy:
+      provider: npm
+      email: dev@redboxresearchdata.com.au
+      api_key: "$NPM_API_KEY"
+      skip_cleanup: true
+      on:
+        tags: true
