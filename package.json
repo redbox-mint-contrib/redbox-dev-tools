@@ -1,13 +1,13 @@
 {
-  "name": "@redboxresearchdata/redbox-dev-tools",
+  "name": "@researchdatabox/redbox-dev-tools",
   "version": "0.0.1",
   "description": "CLI Tool to assist with development on the ReDBox platform",
-  "main": "index.js",
-  "repository": "http://github.com/redbox-mint/redbox-hook-cli",
+  "main": "redbox-dev-tools",
+  "repository": "https://github.com/redbox-mint-contrib/redbox-dev-tools",
   "author": "QCIF",
   "license": "GPL-3.0",
   "private": false,
-  "bin": "redbox-hook-cli",
+  "bin": "redbox-dev-tools",
   "scripts" : {
     "test" : "true"
   },

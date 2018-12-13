@@ -6,7 +6,7 @@ A command line tool to assist with developing [ReDBox](https://www.redboxresearc
 
 Install the tool using npm
 
-```$ npm install @redboxresearchdata/redbox-dev-tools```
+```$ npm install @researchdatabox/redbox-dev-tools```
 
 ## Usage
 
