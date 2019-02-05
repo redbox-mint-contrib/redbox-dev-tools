@@ -24,7 +24,7 @@ Install the tool using npm
 ### Initialise Hook Code Project
 
 #### Usage
-```$ redbox-dev-tools init -p <hook name>```
+```$ redbox-dev-tools hook-init -p <hook name>```
 
 #### Flags
 
